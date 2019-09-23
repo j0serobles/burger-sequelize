@@ -27,7 +27,7 @@ module.exports = function(app) {
   ///////////////////////////////////////////
   app.delete("/api/clear-devoured", function(req, res) {
     
-    db.sequelize.query( "DELETE FROM BURGERS WHERE DEVOURED = TRUE" ).then( function(results) {
+    db.sequelize.query( "DELETE FROM Burgers WHERE devoured = TRUE" ).then( function(results) {
         res.send(results);
       }); 
   });
