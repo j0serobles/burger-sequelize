@@ -24,7 +24,7 @@ The user enters a burger name in a text field in the page and adds it to a list 
 ### How To Run <a name="howToRun"></a>
 The application has been deployed to Heroku and is accessible [here](https://ancient-shore-99109.herokuapp.com/)
 
-A demo video can be accessed [here]https://engjoserobles-gmail.tinytake.com/tt/Mzc3NTgzOV8xMTUxMzE1MQ
+A demo video can be accessed [here]https://engjoserobles-gmail.tinytake.com/tt/Mzc5MTE4OV8xMTU2NzYwNg
 
 
 ### File Structure <a name="FileStructure"></a>
