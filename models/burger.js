@@ -17,7 +17,17 @@ module.exports = function ( sequelize, DataTypes ) {
                             },
                         }
                       },
-        devoured    : DataTypes.BOOLEAN
+        devoured    : DataTypes.BOOLEAN, 
+        createdAt   : { type : DataTypes.DATE,
+                        get: function() {
+                        return moment.utc(this.getDataValue('createdAt')).format('YYYY-MM-DD HH:mm:ss z')
+            }
+         }, 
+        updatedAt   : { type : DataTypes.DATE,
+                        get: function() {
+                          return moment.utc(this.getDataValue('updatedAt')).format('YYYY-MM-DD HH:mm:ss z')
+                        }
+                      } 
     });
 
     return Burger;

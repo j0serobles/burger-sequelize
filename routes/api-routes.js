@@ -3,6 +3,7 @@
 // saving data to the db
 // ******************************************************************************
 // *** Dependencies
+moment = require ('moment'); 
 
 // Requiring our models
 var db = require("../models");

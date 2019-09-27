@@ -1,7 +1,25 @@
-<li>
-	{{burger_name}}
-	<!-- Change devoured state for burger -->
-	{{#unless devoured}}
-		<button class="devour-burger" data-id="{{id}}">Eat it!</button>
-	{{/unless}}
-</li>
+              <tr id="form-row">
+                <form id="burger-form">
+              
+                    <td colspan="4">
+					<p placeholder="burger name" id="burger-name" type="text">{{burger_name}}</p>
+					</td>
+
+					<td colspan="4">
+					<p placeholder="creation date" id="devoured-date" type="text">{{createdAt}}</p>
+					</td>
+
+					<td colspan="4">
+					<!-- Change devoured state for burger -->
+					{{#unless devoured}}
+						<button type="submit" class="btn btn-success devour-burger" data-id="{{id}}">Devour Burger</button>
+					{{/unless}}
+					{{#if devoured}}
+					  <p placeholder="creation date" id="devoured-date" type="text">{{updatedAt}}</p>
+					</td>
+					{{/if}}
+
+                </form>
+              </tr>
+	
+	

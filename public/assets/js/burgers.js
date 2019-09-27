@@ -13,6 +13,10 @@ $(function() {
       devoured : isDevoured
     };
 
+
+    //Show the spinner
+    $(".loading").removeClass("hidden"); 
+
     // Send the PUT request.
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
@@ -21,8 +25,12 @@ $(function() {
       function() {
         console.log(`Burger with id = ${id} has been devoured.`);
         // Reload the page to get the updated list
+
         location.reload();
+        //Hide  the spinner
+        $(".loading").addClass("hidden"); 
       }
+      
     );
   });
 
@@ -35,6 +43,10 @@ $(function() {
       name: $("#bu").val().trim()      
     };
 
+     //Show the spinner
+     $(".loading").removeClass("hidden"); 
+
+
     // Send the POST request.
     $.ajax("/api/burgers", {
       type: "POST",
@@ -44,6 +56,9 @@ $(function() {
         console.log("created new burger " + result);
         // Reload the page to get the updated list
         location.reload();
+         //Hide the spinner
+         $(".loading").addClass("hidden"); 
+
       }
     );
   });
@@ -54,12 +69,19 @@ $(function() {
     event.preventDefault();
     var id = $(this).data("id");
 
+
+      //Show the spinner
+      $(".loading").removeClass("hidden"); 
+
+
     //Call API to delete all burgers with devoured = true
     $.ajax("/api/clear-devoured", 
     {
       type: "DELETE"
     }).then(
       function() {
+         //Hide the spinner
+         $(".loading").addClass("hidden"); 
         console.log("Deleted devoured burger.");
         // Reload the page to get the updated list
         location.reload();

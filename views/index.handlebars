@@ -1,4 +1,7 @@
 <div class="container">
+
+  <div class="loading hidden">Loading&#8230;</div>
+
   
   <div>
   <h1 class="text-center">Eat-Da-Burger!</h1>
@@ -14,7 +17,7 @@
                 <input class="form-control" placeholder="Add a burger" type="text" id="bu" name="name">
               </div>
               <div class="col-md-3">
-                <button type="submit">Add Burger</button>
+                <button class="btn btn-success" type="submit">Add Burger</button>
               </div>
             </div>
           </div>
@@ -24,31 +27,50 @@
   </div>
   
 
-  <h2>Burgers to be devoured:</h2>
+      <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="burger-container">
+          <h1>Burgers To Be Devoured:</h1>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th colspan="4">Name</th>
+                <th colspan="4">Creation Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                    {{#each burger_data}}
+                      {{#unless devoured}}
 
-  <ul>
-    {{#each burger_data}}
-      {{#unless devoured}}
-        {{> burgers/burger-block}}
-      {{/unless}}
-    {{/each}}
-  </ul>
+                        {{> burgers/burger-block}}
+                      
+                      {{/unless}}
+                    {{/each}}
 
-  <div class="row">
-    <div class="col">
-      <h2>Devoured Burgers:</h2>
+            </tbody>
+          </table>
+          <h1>Devoured Burgers:</h1>
+              <button class="btn btn-success clear-devoured">Clear All Devoured</button>
+          <table class="table table-striped mt-3">
+            <thead>
+              <tr>
+                <th colspan="4">Name</th>
+                <th colspan="4">Creation Date</th>
+                <th>Devoured Date</th>
+              </tr>
+            </thead>
+                      <tbody>
+              
+                    {{#each burger_data}}
+                      {{#if devoured}}
+
+                        {{> burgers/burger-block}}
+                      
+                      {{/if}}
+                    {{/each}}
+
+          </table>
+        </div>
+      </div>
     </div>
-    <div class="col">
-      <button class="clear-devoured">Clear All Devoured</button>
-    </div>
-  </div>
-
-
-  <ul>
-    {{#each burger_data}}
-      {{#if devoured}}
-        {{> burgers/burger-block}}
-      {{/if}}
-    {{/each}}
-  </ul>
-</div>
